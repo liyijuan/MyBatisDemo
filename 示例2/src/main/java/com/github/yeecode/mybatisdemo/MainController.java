@@ -1,6 +1,7 @@
 package com.github.yeecode.mybatisdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +22,11 @@ public class MainController {
             System.out.println("name : " + user.getName() + " ;  email : " + user.getEmail());
         }
         return userList;
+    }
+    @RequestMapping("/id/{id}")
+    public Object queryById(@PathVariable int id){
+        User user = userMapper.queryUserById(id);
+//        System.out.println(user);
+        return user;
     }
 }

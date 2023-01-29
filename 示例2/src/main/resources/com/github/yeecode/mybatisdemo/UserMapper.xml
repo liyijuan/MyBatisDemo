@@ -7,4 +7,11 @@
             WHERE schoolName = #{schoolName}
         </if>
      </select>
+
+    <select id="queryUserById" resultType="com.github.yeecode.mybatisdemo.User">
+        select * from `user`
+        <if test="id != null">
+            where id = #{id}
+        </if>
+    </select>
 </mapper>
